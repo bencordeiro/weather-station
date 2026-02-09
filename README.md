@@ -38,5 +38,4 @@ By using a 37 Wh 1S pouch cell that is fed through a protection board and 3.3v b
 ![bench-setup2](https://github.com/user-attachments/assets/095a8ee3-d092-437e-8802-54a6f5f2130e)
 
 # Old V1 Outdoor ESP8266 Node
-![oldV1-esp8266](https://github.com/user-attachments/assets/54ca6866-b004-46f3-b46e-15d67e447ffb)
 <img src="https://github.com/user-attachments/assets/54ca6866-b004-46f3-b46e-15d67e447ffb" width="400">
