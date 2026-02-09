@@ -33,7 +33,9 @@ Acoustic/Environmental Snapshot: Upon waking, the system performs an 8-second hi
 By using a 37 Wh 1S pouch cell that is fed through a protection board and 3.3v buck/boost I estimate over 4 months of battery life.
 
 # Bench Photos
-<img src="https://github.com/user-attachments/assets/1ba4d966-7950-4f3b-a9c4-ba976ed3ec77" width="400">
-<img src="https://github.com/user-attachments/assets/095a8ee3-d092-437e-8802-54a6f5f2130e" width="400">
+<img src="https://github.com/user-attachments/assets/1ba4d966-7950-4f3b-a9c4-ba976ed3ec77" width="800">
+<img src="https://github.com/user-attachments/assets/095a8ee3-d092-437e-8802-54a6f5f2130e" width="800">
+
+# Prototype Wind Cups
 # Old V1 Outdoor ESP8266 Node
 <img src="https://github.com/user-attachments/assets/54ca6866-b004-46f3-b46e-15d67e447ffb" width="400">
