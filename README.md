@@ -31,3 +31,4 @@ Deterministic Power Gating: All high-draw sensors (Microphone, I2C Bus) are isol
 Acoustic/Environmental Snapshot: Upon waking, the system performs an 8-second high-frequency sampling window to capture ambient sound levels and wind speed averages before transmitting data and returning to sleep.
 
 By using a 37 Wh 1S pouch cell that is fed through a protection board and 3.3v buck/boost I estimate over 4 months of battery life.
+![bench-setup](https://github.com/user-attachments/assets/1ba4d966-7950-4f3b-a9c4-ba976ed3ec77)
