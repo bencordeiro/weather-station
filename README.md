@@ -17,10 +17,15 @@ Dual-Rail Strategy: * 3V3_MAIN: Powers ESP32 and Hall sensors for 24/7 rain/wind
 # Hardware-Stack
 
 AHT20,Temp & Humidity,I2C (0x38) 
+
 BMP280,Barometric Pressure,I2C (0x77) 
+
 BH1750,Precision Lux (Digital),I2C (0x23) 
+
 GUVA-S12SD,UV Index,Analog (GPIO35) 
+
 MAX9814,Sound/Loudness,Analog (GPIO36/VP) 
+
 SS49E (x2),Wind Speed & Rain Tip,Analog (GPIO32/34) 
 
 # Logic & Power Management
