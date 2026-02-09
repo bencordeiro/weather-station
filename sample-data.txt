@@ -1,0 +1,14 @@
+sample-data.txt
+
+15:07:17.115 -> --- CYCLE REPORT ---
+15:07:17.115 -> ENV: 22.6C | 24.9% | 963.0 hPa
+15:07:17.115 -> LIGHT: UV Raw: 0 | LUX: 72
+15:07:17.115 -> WIND: 0.0 km/h (0 pulses) | RAIN: 0 tips
+15:07:17.115 -> SOUND LOUDNESS: 1455
+15:08:17.516 -> Sampling Sound (8s)...
+15:08:25.565 -> 
+15:08:25.565 -> --- CYCLE REPORT ---
+15:08:25.565 -> ENV: 22.7C | 25.1% | 963.0 hPa
+15:08:25.565 -> LIGHT: UV Raw: 0 | LUX: 70
+15:08:25.565 -> WIND: 0.1 km/h (4 pulses) | RAIN: 3 tips
+15:08:25.611 -> SOUND LOUDNESS: 1055
