@@ -37,5 +37,8 @@ By using a 37 Wh 1S pouch cell that is fed through a protection board and 3.3v b
 <img src="https://github.com/user-attachments/assets/095a8ee3-d092-437e-8802-54a6f5f2130e" width="800">
 
 # Prototype Wind Cups
+![wind-cupsV1](https://github.com/user-attachments/assets/d6628e96-0017-4d8c-bcdd-034d70676b10)
+
+
 # Old V1 Outdoor ESP8266 Node
 <img src="https://github.com/user-attachments/assets/54ca6866-b004-46f3-b46e-15d67e447ffb" width="400">
