@@ -68,6 +68,22 @@ The recovered firmware has placeholder network settings. To connect it, set its 
 `/ingest` URL. The server expects `DEVICE_ID=outdoor-esp32-v5`, matching V5.
 Do not put the station key in frontend code.
 
+### Connecting an unchanged recovered V5 station
+
+For a station still running the recovered network settings, give the server the
+address already configured in the station and set `HOST`, `PORT`, and
+`INGEST_API_KEY` in `.env` to match that firmware. The recovered local sketch has
+the original address and key; they are intentionally not included in GitHub.
+Restart the server and allow the station's LAN address to reach that TCP port.
+The firmware must still have access to its configured Wi-Fi network. Its actual
+installed firmware and a successful upload must be verified on the hardware.
+
+Legacy short keys are accepted for compatibility. Keep the HTTP listener on a
+trusted private network, restrict access to the station and local proxy, and use
+the generated long key once the station can be updated. If the tunnel uses the
+same server, point it at the configured port. The Docker Compose port mapping
+must also be changed if using Docker and accepting LAN uploads.
+
 ## Upload contract
 
 ```http
@@ -174,7 +190,7 @@ See `.env.example`. The defaults are suitable for one V5 station.
 
 | Variable | Default / use |
 | --- | --- |
-| `INGEST_API_KEY` | Required: 32–256 characters; setup generates a random 64-character key |
+| `INGEST_API_KEY` | Required: 1–256 non-whitespace characters; setup generates a random 64-character key |
 | `DEVICE_ID` | `outdoor-esp32-v5`; allowed uploading station |
 | `HOST`, `PORT` | `127.0.0.1`, `8787` |
 | `DB_PATH` | `./data/weather.sqlite`, relative to the working directory |

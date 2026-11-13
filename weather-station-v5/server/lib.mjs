@@ -15,8 +15,8 @@ function numberSetting(env, name, fallback, min, max) {
 
 export function configFromEnv(env = process.env) {
   const key = env.INGEST_API_KEY || '';
-  if (key.length < 32 || key.length > 256 || /[\s\x00-\x1f\x7f]/.test(key)) {
-    throw new Error('INGEST_API_KEY must contain 32–256 non-whitespace characters. Run node scripts/setup.mjs.');
+  if (key.length < 1 || key.length > 256 || /[\s\x00-\x1f\x7f]/.test(key)) {
+    throw new Error('INGEST_API_KEY must contain 1–256 non-whitespace characters. Run node scripts/setup.mjs.');
   }
   const device = env.DEVICE_ID || 'outdoor-esp32-v5';
   if (!/^[a-zA-Z0-9_-]{1,64}$/.test(device)) throw new Error('Invalid DEVICE_ID');

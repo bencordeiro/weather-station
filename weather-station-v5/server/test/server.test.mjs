@@ -282,13 +282,23 @@ test('retention removes expired samples while preserving recent history', () => 
 
 test('unsafe or invalid server configuration is rejected before accepting traffic', () => {
   for (const env of [
-    { INGEST_API_KEY: 'short' }, { INGEST_API_KEY: ' ' .repeat(40) },
+    { INGEST_API_KEY: '' }, { INGEST_API_KEY: ' ' .repeat(40) },
     { PORT: '1.5' }, { PORT: '70000' }, { TIME_ZONE: 'Invalid/Zone' },
     { DEVICE_ID: '../station' }, { TRUST_PROXY: 'yes' }, { RETENTION_DAYS: '0' },
     { PUBLIC_ORIGIN: 'http://weather.example' }, { PUBLIC_ORIGIN: 'https://weather.example/path' },
     { RAIN_MM_PER_TIP: '-1' }, { STALE_AFTER_SECONDS: '0' }, { STATION_ELEVATION_M: '99999' },
     { PRESSURE_OFFSET_HPA: '200' }, { WIND_ENABLED: 'yes' },
   ]) assert.throws(() => configFromEnv({ INGEST_API_KEY: KEY, ...env }));
+});
+
+test('a legacy-length station key authenticates uploads and rejects other keys', async t => {
+  const legacyKey = 'legacy-key12';
+  const app = await start(t, { env: { INGEST_API_KEY: legacyKey } });
+  const headers = { 'Content-Type': 'application/json', 'X-Api-Key': 'wrong-key' };
+  assert.equal((await app.post(sample, { headers })).status, 401);
+  headers['X-Api-Key'] = legacyKey;
+  assert.equal((await app.post(sample, { headers })).status, 200);
+  assert.equal((await (await app.get('/api/latest')).json()).reading.temp_c, sample.temp_c);
 });
 
 test('uncommissioned wind and rain are missing, never published as calm or dry weather', async t => {
