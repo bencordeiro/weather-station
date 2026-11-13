@@ -1,0 +1,345 @@
+{
+  "description": "Exploratory, post-hoc fixed thresholds; not a validated forecast.",
+  "stations": {
+    "egbert": {
+      "2024": {
+        "dry_now": {
+          "pressure_fall_gt_2": {
+            "evaluated_hours": 7880,
+            "event_hours": 1053,
+            "signal_hours": 381,
+            "true_positives": 155,
+            "false_positives": 226,
+            "false_negatives": 898,
+            "event_rate": 0.1336294416243655,
+            "precision": 0.4068241469816273,
+            "false_discovery_rate": 0.5931758530183727,
+            "recall": 0.14719848053181386,
+            "false_positive_rate": 0.033103852350959424
+          },
+          "humidity_at_least_80": {
+            "evaluated_hours": 7880,
+            "event_hours": 1053,
+            "signal_hours": 3632,
+            "true_positives": 542,
+            "false_positives": 3090,
+            "false_negatives": 511,
+            "event_rate": 0.1336294416243655,
+            "precision": 0.14922907488986784,
+            "false_discovery_rate": 0.8507709251101322,
+            "recall": 0.5147198480531814,
+            "false_positive_rate": 0.45261461842683465
+          },
+          "both": {
+            "evaluated_hours": 7880,
+            "event_hours": 1053,
+            "signal_hours": 156,
+            "true_positives": 91,
+            "false_positives": 65,
+            "false_negatives": 962,
+            "event_rate": 0.1336294416243655,
+            "precision": 0.5833333333333334,
+            "false_discovery_rate": 0.4166666666666667,
+            "recall": 0.08641975308641975,
+            "false_positive_rate": 0.009521019481470631
+          }
+        },
+        "all_current_conditions": {
+          "pressure_fall_gt_2": {
+            "evaluated_hours": 8730,
+            "event_hours": 1663,
+            "signal_hours": 541,
+            "true_positives": 300,
+            "false_positives": 241,
+            "false_negatives": 1363,
+            "event_rate": 0.19049255441008017,
+            "precision": 0.5545286506469501,
+            "false_discovery_rate": 0.4454713493530499,
+            "recall": 0.1803968731208659,
+            "false_positive_rate": 0.03410216499221735
+          },
+          "humidity_at_least_80": {
+            "evaluated_hours": 8730,
+            "event_hours": 1663,
+            "signal_hours": 4411,
+            "true_positives": 1121,
+            "false_positives": 3290,
+            "false_negatives": 542,
+            "event_rate": 0.19049255441008017,
+            "precision": 0.2541373838131943,
+            "false_discovery_rate": 0.7458626161868057,
+            "recall": 0.6740829825616356,
+            "false_positive_rate": 0.46554407810952314
+          },
+          "both": {
+            "evaluated_hours": 8730,
+            "event_hours": 1663,
+            "signal_hours": 308,
+            "true_positives": 232,
+            "false_positives": 76,
+            "false_negatives": 1431,
+            "event_rate": 0.19049255441008017,
+            "precision": 0.7532467532467533,
+            "false_discovery_rate": 0.24675324675324675,
+            "recall": 0.13950691521346964,
+            "false_positive_rate": 0.010754209707089289
+          }
+        }
+      },
+      "2025": {
+        "dry_now": {
+          "pressure_fall_gt_2": {
+            "evaluated_hours": 7770,
+            "event_hours": 1061,
+            "signal_hours": 583,
+            "true_positives": 194,
+            "false_positives": 389,
+            "false_negatives": 867,
+            "event_rate": 0.13655083655083655,
+            "precision": 0.33276157804459694,
+            "false_discovery_rate": 0.6672384219554031,
+            "recall": 0.1828463713477851,
+            "false_positive_rate": 0.05798181547175436
+          },
+          "humidity_at_least_80": {
+            "evaluated_hours": 7770,
+            "event_hours": 1061,
+            "signal_hours": 2874,
+            "true_positives": 516,
+            "false_positives": 2358,
+            "false_negatives": 545,
+            "event_rate": 0.13655083655083655,
+            "precision": 0.17954070981210857,
+            "false_discovery_rate": 0.8204592901878914,
+            "recall": 0.48633364750235625,
+            "false_positive_rate": 0.35146817707557015
+          },
+          "both": {
+            "evaluated_hours": 7770,
+            "event_hours": 1061,
+            "signal_hours": 187,
+            "true_positives": 82,
+            "false_positives": 105,
+            "false_negatives": 979,
+            "event_rate": 0.13655083655083655,
+            "precision": 0.4385026737967914,
+            "false_discovery_rate": 0.5614973262032086,
+            "recall": 0.07728557964184732,
+            "false_positive_rate": 0.01565061857206737
+          }
+        },
+        "all_current_conditions": {
+          "pressure_fall_gt_2": {
+            "evaluated_hours": 8699,
+            "event_hours": 1766,
+            "signal_hours": 799,
+            "true_positives": 389,
+            "false_positives": 410,
+            "false_negatives": 1377,
+            "event_rate": 0.20301184044143006,
+            "precision": 0.48685857321652065,
+            "false_discovery_rate": 0.5131414267834794,
+            "recall": 0.2202718006795017,
+            "false_positive_rate": 0.05913745853166018
+          },
+          "humidity_at_least_80": {
+            "evaluated_hours": 8699,
+            "event_hours": 1766,
+            "signal_hours": 3756,
+            "true_positives": 1201,
+            "false_positives": 2555,
+            "false_negatives": 565,
+            "event_rate": 0.20301184044143006,
+            "precision": 0.31975505857294995,
+            "false_discovery_rate": 0.68024494142705,
+            "recall": 0.6800679501698754,
+            "false_positive_rate": 0.3685273330448579
+          },
+          "both": {
+            "evaluated_hours": 8699,
+            "event_hours": 1766,
+            "signal_hours": 392,
+            "true_positives": 267,
+            "false_positives": 125,
+            "false_negatives": 1499,
+            "event_rate": 0.20301184044143006,
+            "precision": 0.6811224489795918,
+            "false_discovery_rate": 0.31887755102040816,
+            "recall": 0.15118912797281994,
+            "false_positive_rate": 0.018029712966969567
+          }
+        }
+      }
+    },
+    "mount-forest": {
+      "2024": {
+        "dry_now": {
+          "pressure_fall_gt_2": {
+            "evaluated_hours": 7787,
+            "event_hours": 1258,
+            "signal_hours": 317,
+            "true_positives": 165,
+            "false_positives": 152,
+            "false_negatives": 1093,
+            "event_rate": 0.1615513034544754,
+            "precision": 0.5205047318611987,
+            "false_discovery_rate": 0.4794952681388013,
+            "recall": 0.13116057233704292,
+            "false_positive_rate": 0.023280747434522898
+          },
+          "humidity_at_least_80": {
+            "evaluated_hours": 7787,
+            "event_hours": 1258,
+            "signal_hours": 4075,
+            "true_positives": 830,
+            "false_positives": 3245,
+            "false_negatives": 428,
+            "event_rate": 0.1615513034544754,
+            "precision": 0.20368098159509201,
+            "false_discovery_rate": 0.7963190184049079,
+            "recall": 0.6597774244833068,
+            "false_positive_rate": 0.49701332516465
+          },
+          "both": {
+            "evaluated_hours": 7787,
+            "event_hours": 1258,
+            "signal_hours": 137,
+            "true_positives": 100,
+            "false_positives": 37,
+            "false_negatives": 1158,
+            "event_rate": 0.1615513034544754,
+            "precision": 0.7299270072992701,
+            "false_discovery_rate": 0.27007299270072993,
+            "recall": 0.0794912559618442,
+            "false_positive_rate": 0.005667024046561495
+          }
+        },
+        "all_current_conditions": {
+          "pressure_fall_gt_2": {
+            "evaluated_hours": 8726,
+            "event_hours": 1976,
+            "signal_hours": 482,
+            "true_positives": 320,
+            "false_positives": 162,
+            "false_negatives": 1656,
+            "event_rate": 0.22644969057987624,
+            "precision": 0.6639004149377593,
+            "false_discovery_rate": 0.3360995850622407,
+            "recall": 0.16194331983805668,
+            "false_positive_rate": 0.024
+          },
+          "humidity_at_least_80": {
+            "evaluated_hours": 8726,
+            "event_hours": 1976,
+            "signal_hours": 4982,
+            "true_positives": 1530,
+            "false_positives": 3452,
+            "false_negatives": 446,
+            "event_rate": 0.22644969057987624,
+            "precision": 0.30710558008831795,
+            "false_discovery_rate": 0.6928944199116821,
+            "recall": 0.7742914979757085,
+            "false_positive_rate": 0.5114074074074074
+          },
+          "both": {
+            "evaluated_hours": 8726,
+            "event_hours": 1976,
+            "signal_hours": 299,
+            "true_positives": 254,
+            "false_positives": 45,
+            "false_negatives": 1722,
+            "event_rate": 0.22644969057987624,
+            "precision": 0.8494983277591973,
+            "false_discovery_rate": 0.1505016722408027,
+            "recall": 0.12854251012145748,
+            "false_positive_rate": 0.006666666666666667
+          }
+        }
+      },
+      "2025": {
+        "dry_now": {
+          "pressure_fall_gt_2": {
+            "evaluated_hours": 7557,
+            "event_hours": 1275,
+            "signal_hours": 528,
+            "true_positives": 226,
+            "false_positives": 302,
+            "false_negatives": 1049,
+            "event_rate": 0.1687177451369591,
+            "precision": 0.42803030303030304,
+            "false_discovery_rate": 0.571969696969697,
+            "recall": 0.1772549019607843,
+            "false_positive_rate": 0.04807386182744349
+          },
+          "humidity_at_least_80": {
+            "evaluated_hours": 7557,
+            "event_hours": 1275,
+            "signal_hours": 3433,
+            "true_positives": 783,
+            "false_positives": 2650,
+            "false_negatives": 492,
+            "event_rate": 0.1687177451369591,
+            "precision": 0.2280803961549665,
+            "false_discovery_rate": 0.7719196038450336,
+            "recall": 0.6141176470588235,
+            "false_positive_rate": 0.4218401782871697
+          },
+          "both": {
+            "evaluated_hours": 7557,
+            "event_hours": 1275,
+            "signal_hours": 195,
+            "true_positives": 103,
+            "false_positives": 92,
+            "false_negatives": 1172,
+            "event_rate": 0.1687177451369591,
+            "precision": 0.5282051282051282,
+            "false_discovery_rate": 0.4717948717948718,
+            "recall": 0.08078431372549019,
+            "false_positive_rate": 0.014645017510347023
+          }
+        },
+        "all_current_conditions": {
+          "pressure_fall_gt_2": {
+            "evaluated_hours": 8677,
+            "event_hours": 2178,
+            "signal_hours": 726,
+            "true_positives": 415,
+            "false_positives": 311,
+            "false_negatives": 1763,
+            "event_rate": 0.25100841304598365,
+            "precision": 0.571625344352617,
+            "false_discovery_rate": 0.4283746556473829,
+            "recall": 0.19054178145087236,
+            "false_positive_rate": 0.047853515925527
+          },
+          "humidity_at_least_80": {
+            "evaluated_hours": 8677,
+            "event_hours": 2178,
+            "signal_hours": 4519,
+            "true_positives": 1666,
+            "false_positives": 2853,
+            "false_negatives": 512,
+            "event_rate": 0.25100841304598365,
+            "precision": 0.3686656339898208,
+            "false_discovery_rate": 0.6313343660101792,
+            "recall": 0.7649219467401286,
+            "false_positive_rate": 0.43899061394060623
+          },
+          "both": {
+            "evaluated_hours": 8677,
+            "event_hours": 2178,
+            "signal_hours": 385,
+            "true_positives": 286,
+            "false_positives": 99,
+            "false_negatives": 1892,
+            "event_rate": 0.25100841304598365,
+            "precision": 0.7428571428571429,
+            "false_discovery_rate": 0.2571428571428571,
+            "recall": 0.13131313131313133,
+            "false_positive_rate": 0.015233112786582551
+          }
+        }
+      }
+    }
+  }
+}

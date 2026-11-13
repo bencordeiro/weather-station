@@ -1,0 +1,102 @@
+{
+  "egbert": {
+    "2020": {
+      "source_rows": 8784,
+      "valid_unflagged": {
+        "pressure": 8764,
+        "precipitation": 8764,
+        "relative_humidity": 8764
+      }
+    },
+    "2021": {
+      "source_rows": 8760,
+      "valid_unflagged": {
+        "pressure": 8524,
+        "precipitation": 8524,
+        "relative_humidity": 8524
+      }
+    },
+    "2022": {
+      "source_rows": 8760,
+      "valid_unflagged": {
+        "pressure": 8753,
+        "precipitation": 8706,
+        "relative_humidity": 8753
+      }
+    },
+    "2023": {
+      "source_rows": 8760,
+      "valid_unflagged": {
+        "pressure": 8737,
+        "precipitation": 8737,
+        "relative_humidity": 8476
+      }
+    },
+    "2024": {
+      "source_rows": 8784,
+      "valid_unflagged": {
+        "pressure": 8776,
+        "precipitation": 8756,
+        "relative_humidity": 8776
+      }
+    },
+    "2025": {
+      "source_rows": 8760,
+      "valid_unflagged": {
+        "pressure": 8751,
+        "precipitation": 8750,
+        "relative_humidity": 8751
+      }
+    }
+  },
+  "mount-forest": {
+    "2020": {
+      "source_rows": 8784,
+      "valid_unflagged": {
+        "pressure": 8521,
+        "precipitation": 6613,
+        "relative_humidity": 8521
+      }
+    },
+    "2021": {
+      "source_rows": 8760,
+      "valid_unflagged": {
+        "pressure": 8715,
+        "precipitation": 8714,
+        "relative_humidity": 8715
+      }
+    },
+    "2022": {
+      "source_rows": 8760,
+      "valid_unflagged": {
+        "pressure": 8748,
+        "precipitation": 8747,
+        "relative_humidity": 8748
+      }
+    },
+    "2023": {
+      "source_rows": 8760,
+      "valid_unflagged": {
+        "pressure": 8754,
+        "precipitation": 8754,
+        "relative_humidity": 8754
+      }
+    },
+    "2024": {
+      "source_rows": 8784,
+      "valid_unflagged": {
+        "pressure": 8773,
+        "precipitation": 8773,
+        "relative_humidity": 8773
+      }
+    },
+    "2025": {
+      "source_rows": 8760,
+      "valid_unflagged": {
+        "pressure": 8746,
+        "precipitation": 8746,
+        "relative_humidity": 8746
+      }
+    }
+  }
+}

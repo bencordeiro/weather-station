@@ -51,6 +51,9 @@ to match the settings already on that station. Keep private settings out of the
 repository. A public tunnel can serve the dashboard while the station sends over
 a restricted private network.
 
+The [barometric pressure research](weather-station-v5/research/barometric-pressure/README.md)
+documents regional historical comparisons, uncertainty, and recommended next steps.
+
 ## Photographs from the project
 
 ### Bench photos

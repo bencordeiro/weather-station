@@ -1,0 +1,308 @@
+{
+  "station": "EGBERT CS",
+  "climate_id": "611E001",
+  "station_id": 27604,
+  "years": [
+    2020,
+    2025
+  ],
+  "source_rows": 52608,
+  "outcome": "At least 0.2 mm recorded in next six hourly periods, conditional on current hourly precipitation being zero.",
+  "clock": "ECCC Local Standard Time, without daylight-saving conversion",
+  "signals": "Three-hour station pressure fall strictly greater than stated hPa.",
+  "splits": {
+    "development": {
+      "years": [
+        2020,
+        2023
+      ],
+      "rules": {
+        "fall_gt_0.5": {
+          "evaluated_hours": 31393,
+          "event_hours": 5094,
+          "signal_hours": 9846,
+          "true_positives": 2155,
+          "false_positives": 7691,
+          "false_negatives": 2939,
+          "event_rate": 0.16226547319466122,
+          "precision": 0.2188706073532399,
+          "false_discovery_rate": 0.7811293926467601,
+          "recall": 0.4230467216332941,
+          "false_positive_rate": 0.2924445796418115
+        },
+        "fall_gt_1": {
+          "evaluated_hours": 31393,
+          "event_hours": 5094,
+          "signal_hours": 6106,
+          "true_positives": 1556,
+          "false_positives": 4550,
+          "false_negatives": 3538,
+          "event_rate": 0.16226547319466122,
+          "precision": 0.25483131346216836,
+          "false_discovery_rate": 0.7451686865378316,
+          "recall": 0.3054574008637613,
+          "false_positive_rate": 0.17301038062283736
+        },
+        "fall_gt_2": {
+          "evaluated_hours": 31393,
+          "event_hours": 5094,
+          "signal_hours": 2073,
+          "true_positives": 701,
+          "false_positives": 1372,
+          "false_negatives": 4393,
+          "event_rate": 0.16226547319466122,
+          "precision": 0.33815726000964785,
+          "false_discovery_rate": 0.6618427399903521,
+          "recall": 0.1376128778955634,
+          "false_positive_rate": 0.05216928400319404
+        },
+        "fall_gt_3": {
+          "evaluated_hours": 31393,
+          "event_hours": 5094,
+          "signal_hours": 737,
+          "true_positives": 314,
+          "false_positives": 423,
+          "false_negatives": 4780,
+          "event_rate": 0.16226547319466122,
+          "precision": 0.4260515603799186,
+          "false_discovery_rate": 0.5739484396200815,
+          "recall": 0.06164114644680016,
+          "false_positive_rate": 0.016084261759002242
+        },
+        "fall_gt_5": {
+          "evaluated_hours": 31393,
+          "event_hours": 5094,
+          "signal_hours": 86,
+          "true_positives": 60,
+          "false_positives": 26,
+          "false_negatives": 5034,
+          "event_rate": 0.16226547319466122,
+          "precision": 0.6976744186046512,
+          "false_discovery_rate": 0.3023255813953488,
+          "recall": 0.011778563015312132,
+          "false_positive_rate": 0.0009886307464162135
+        }
+      }
+    },
+    "validation": {
+      "years": [
+        2024,
+        2024
+      ],
+      "rules": {
+        "fall_gt_0.5": {
+          "evaluated_hours": 7880,
+          "event_hours": 1053,
+          "signal_hours": 2398,
+          "true_positives": 481,
+          "false_positives": 1917,
+          "false_negatives": 572,
+          "event_rate": 0.1336294416243655,
+          "precision": 0.2005838198498749,
+          "false_discovery_rate": 0.799416180150125,
+          "recall": 0.4567901234567901,
+          "false_positive_rate": 0.2807968360919877
+        },
+        "fall_gt_1": {
+          "evaluated_hours": 7880,
+          "event_hours": 1053,
+          "signal_hours": 1424,
+          "true_positives": 359,
+          "false_positives": 1065,
+          "false_negatives": 694,
+          "event_rate": 0.1336294416243655,
+          "precision": 0.2521067415730337,
+          "false_discovery_rate": 0.7478932584269663,
+          "recall": 0.3409306742640076,
+          "false_positive_rate": 0.1559982422733265
+        },
+        "fall_gt_2": {
+          "evaluated_hours": 7880,
+          "event_hours": 1053,
+          "signal_hours": 381,
+          "true_positives": 155,
+          "false_positives": 226,
+          "false_negatives": 898,
+          "event_rate": 0.1336294416243655,
+          "precision": 0.4068241469816273,
+          "false_discovery_rate": 0.5931758530183727,
+          "recall": 0.14719848053181386,
+          "false_positive_rate": 0.033103852350959424
+        },
+        "fall_gt_3": {
+          "evaluated_hours": 7880,
+          "event_hours": 1053,
+          "signal_hours": 103,
+          "true_positives": 64,
+          "false_positives": 39,
+          "false_negatives": 989,
+          "event_rate": 0.1336294416243655,
+          "precision": 0.6213592233009708,
+          "false_discovery_rate": 0.3786407766990291,
+          "recall": 0.060778727445394115,
+          "false_positive_rate": 0.0057126116888823785
+        },
+        "fall_gt_5": {
+          "evaluated_hours": 7880,
+          "event_hours": 1053,
+          "signal_hours": 10,
+          "true_positives": 8,
+          "false_positives": 2,
+          "false_negatives": 1045,
+          "event_rate": 0.1336294416243655,
+          "precision": 0.8,
+          "false_discovery_rate": 0.2,
+          "recall": 0.007597340930674264,
+          "false_positive_rate": 0.00029295444558371175
+        }
+      }
+    },
+    "holdout": {
+      "years": [
+        2025,
+        2025
+      ],
+      "rules": {
+        "fall_gt_0.5": {
+          "evaluated_hours": 7770,
+          "event_hours": 1061,
+          "signal_hours": 2555,
+          "true_positives": 554,
+          "false_positives": 2001,
+          "false_negatives": 507,
+          "event_rate": 0.13655083655083655,
+          "precision": 0.21682974559686888,
+          "false_discovery_rate": 0.7831702544031311,
+          "recall": 0.5221489161168709,
+          "false_positive_rate": 0.29825607393054104,
+          "daily_block_bootstrap_precision_95pct": [
+            0.18438095238095237,
+            0.25060144346431434
+          ]
+        },
+        "fall_gt_1": {
+          "evaluated_hours": 7770,
+          "event_hours": 1061,
+          "signal_hours": 1623,
+          "true_positives": 391,
+          "false_positives": 1232,
+          "false_negatives": 670,
+          "event_rate": 0.13655083655083655,
+          "precision": 0.24091189155884166,
+          "false_discovery_rate": 0.7590881084411584,
+          "recall": 0.3685202639019793,
+          "false_positive_rate": 0.18363392457892383,
+          "daily_block_bootstrap_precision_95pct": [
+            0.2,
+            0.28607755880483154
+          ]
+        },
+        "fall_gt_2": {
+          "evaluated_hours": 7770,
+          "event_hours": 1061,
+          "signal_hours": 583,
+          "true_positives": 194,
+          "false_positives": 389,
+          "false_negatives": 867,
+          "event_rate": 0.13655083655083655,
+          "precision": 0.33276157804459694,
+          "false_discovery_rate": 0.6672384219554031,
+          "recall": 0.1828463713477851,
+          "false_positive_rate": 0.05798181547175436,
+          "daily_block_bootstrap_precision_95pct": [
+            0.26359143327841844,
+            0.40634441087613293
+          ]
+        },
+        "fall_gt_3": {
+          "evaluated_hours": 7770,
+          "event_hours": 1061,
+          "signal_hours": 198,
+          "true_positives": 93,
+          "false_positives": 105,
+          "false_negatives": 968,
+          "event_rate": 0.13655083655083655,
+          "precision": 0.4696969696969697,
+          "false_discovery_rate": 0.5303030303030303,
+          "recall": 0.08765315739868049,
+          "false_positive_rate": 0.01565061857206737,
+          "daily_block_bootstrap_precision_95pct": [
+            0.350253807106599,
+            0.5963302752293578
+          ]
+        },
+        "fall_gt_5": {
+          "evaluated_hours": 7770,
+          "event_hours": 1061,
+          "signal_hours": 32,
+          "true_positives": 19,
+          "false_positives": 13,
+          "false_negatives": 1042,
+          "event_rate": 0.13655083655083655,
+          "precision": 0.59375,
+          "false_discovery_rate": 0.40625,
+          "recall": 0.017907634307257305,
+          "false_positive_rate": 0.0019376956327321509,
+          "daily_block_bootstrap_precision_95pct": [
+            0.2807017543859649,
+            0.8571428571428571
+          ]
+        }
+      }
+    }
+  },
+  "holdout_seasons": {
+    "winter": {
+      "evaluated_hours": 1789,
+      "event_hours": 332,
+      "signal_hours": 261,
+      "true_positives": 79,
+      "false_positives": 182,
+      "false_negatives": 253,
+      "event_rate": 0.18557853549468978,
+      "precision": 0.30268199233716475,
+      "false_discovery_rate": 0.6973180076628352,
+      "recall": 0.23795180722891565,
+      "false_positive_rate": 0.12491420727522307
+    },
+    "spring": {
+      "evaluated_hours": 1957,
+      "event_hours": 308,
+      "signal_hours": 186,
+      "true_positives": 64,
+      "false_positives": 122,
+      "false_negatives": 244,
+      "event_rate": 0.15738375063873275,
+      "precision": 0.34408602150537637,
+      "false_discovery_rate": 0.6559139784946236,
+      "recall": 0.2077922077922078,
+      "false_positive_rate": 0.0739842328684051
+    },
+    "summer": {
+      "evaluated_hours": 2101,
+      "event_hours": 157,
+      "signal_hours": 28,
+      "true_positives": 7,
+      "false_positives": 21,
+      "false_negatives": 150,
+      "event_rate": 0.07472632079961923,
+      "precision": 0.25,
+      "false_discovery_rate": 0.75,
+      "recall": 0.044585987261146494,
+      "false_positive_rate": 0.010802469135802469
+    },
+    "fall": {
+      "evaluated_hours": 1923,
+      "event_hours": 264,
+      "signal_hours": 108,
+      "true_positives": 44,
+      "false_positives": 64,
+      "false_negatives": 220,
+      "event_rate": 0.1372854914196568,
+      "precision": 0.4074074074074074,
+      "false_discovery_rate": 0.5925925925925926,
+      "recall": 0.16666666666666666,
+      "false_positive_rate": 0.038577456298975285
+    }
+  }
+}
