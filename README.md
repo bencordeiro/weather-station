@@ -1,3 +1,5 @@
+> **Project status:** The [legacy sketch](legacy/weather-station.ino) is the earlier V3.2.1 bench test. The recovered [V5 firmware and replacement dashboard](weather-station-v5/README.md) are in `weather-station-v5/`. V5 uses different hardware and pin assignments; its server has not yet been connected to the station or hardware-tested. The original design notes below describe the earlier prototype and include planned features that are not implemented in the bench sketch.
+
 # Weather-Station V2
 
 A DIY, high-efficiency environmental monitoring node powered by an ESP32. This project measures barometric pressure, lux, temperature, humidity, UV, wind speed, rain (mm), sound pollution and lightning. 3D printed enclosure, tipping bucket and wind cups mechanism.

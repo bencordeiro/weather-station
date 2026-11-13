@@ -1,3 +1,5 @@
+// LEGACY V3.2.1 BENCH TEST: uses the earlier ESP32, sensors, and pin assignments.
+// For the recovered ESP32-C3 V5 firmware, see ../weather-station-v5/.
 #include <Wire.h>
 #include <Adafruit_AHTX0.h>
 #include <Adafruit_BMP280.h>

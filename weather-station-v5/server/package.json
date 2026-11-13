@@ -1,0 +1,15 @@
+{
+  "name": "shelburne-weather",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shelburne's neighbourhood weather dashboard, authenticated receiver, and read-only weather API.",
+  "engines": { "node": ">=24.0.0 <25" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "test": "node --test --test-isolation=none test/*.test.mjs",
+    "setup": "node scripts/setup.mjs",
+    "backup": "node --env-file-if-exists=.env scripts/backup.mjs",
+    "check": "node --check server.mjs && node --check lib.mjs && node --check scripts/setup.mjs && node --check scripts/backup.mjs && node --check public/app.js && node --check public/model.js && node --check public/theme.js"
+  }
+}

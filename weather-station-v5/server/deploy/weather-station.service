@@ -1,0 +1,22 @@
+[Unit]
+Description=Shelburne weather station API
+After=network.target
+
+[Service]
+Type=simple
+User=weather
+Group=weather
+WorkingDirectory=/opt/weather-station/server
+EnvironmentFile=/opt/weather-station/server/.env
+ExecStart=/usr/bin/node /opt/weather-station/server/server.mjs
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/weather-station/server/data
+
+[Install]
+WantedBy=multi-user.target
