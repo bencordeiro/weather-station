@@ -6,8 +6,9 @@ Recovered from the Arduino build cache on 2026-10-21. Open
 The replacement receiver and one-page Shelburne dashboard are in
 [`server/`](server/README.md). The app stores V5 uploads and serves the public
 page, sensor graphs, and read-only weather APIs. Server
-configuration and hosting instructions are in its README. The recovered sketch
-has not been changed to connect to it yet.
+configuration and hosting instructions are in its README. The currently installed
+station has successfully uploaded to the replacement server using matching settings.
+The public sketch uses placeholders; the original local recovery is unchanged.
 
 ## Recovery
 
@@ -37,8 +38,8 @@ Required libraries:
 
 | Connection | GPIO / address |
 | --- | --- |
-| Rain Hall sensor, analog | 0 |
-| Wind Hall sensor, analog | 1 |
+| Rain Hall input, analog (not currently connected) | 0 |
+| Wind Hall input, analog (not currently connected) | 1 |
 | UV sensor, analog | 2 |
 | Microphone, analog | 3 |
 | I2C SDA | 6 |
@@ -46,9 +47,11 @@ Required libraries:
 | Sensor power gate, NPN base control | 10; HIGH enables, LOW disables |
 | BME280 I2C address | 0x76 |
 
-The code documents the gate control as a high-side switch with an NPN base
-input. It does not document the second transistor, component numbers, or
-resistor values; this is not a complete power-switch schematic.
+The station uses a two-transistor power gate, and its hardware includes a
+100 µF capacitor. The reported transistor markings are `PN222A` and `2NA338`;
+their exact part identification is unconfirmed. The recovered code documents a
+high-side switch with an NPN base input. The capacitor connection, switched
+loads, and resistor values are not yet fully documented.
 
 ## Configuration and behavior
 
@@ -60,10 +63,14 @@ before reconnecting it. The original recovered configuration is kept locally.
 sensors on, samples sound and the other sensors, powers the sensor rail off,
 and sends JSON to the configured server. The 60-second wait starts at the end
 of the previous cycle, so the complete reporting period is longer than 60 seconds.
+A serial capture of the installed station showed cycle starts about 66 seconds
+apart and a sound-sampling window of about five seconds.
 
 Existing behavior to consider when resuming development:
 
 - Hall inputs are polled; blocking Wi-Fi and HTTP operations can miss pulses.
+  The Hall sensors are not currently connected; wind and rain are disabled on
+  the server until those instruments are built and commissioned.
 - Rain and wind counters reset after each cycle even if the upload fails.
 - A failed BME280 initialization substitutes zero for its readings.
 - UV and sound are raw readings, rain is a tip count, and wind uses the existing
@@ -71,6 +78,8 @@ Existing behavior to consider when resuming development:
 
 ## Verification
 
-Recovery was checked against the cached source: all remaining lines are
-identical after removing generated scaffolding. No firmware compilation or
-hardware upload was performed; `arduino-cli` is not installed in this environment.
+Recovery was checked against the cached source before network settings were
+replaced with placeholders for publication. The station's serial messages,
+five-second sound window, payload, and successful uploads match the recovered
+V5 behavior. The installed firmware has not been compared byte-for-byte, and no
+firmware compilation or hardware upload has been performed during recovery.
