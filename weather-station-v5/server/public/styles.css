@@ -274,6 +274,10 @@ summary::-webkit-details-marker { display: none; }
 .pressure-notes[open] summary > span { transform: rotate(45deg); }
 .pressure-notes p { font-size: 15px; line-height: 1.8; color: var(--muted); }
 .station-notes { display: block; padding-block: 20px 28px; margin-top: 28px; }
+.station-elevation { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding-bottom: 20px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.station-elevation p { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+.station-elevation strong { color: var(--ink); font-size: 24px; font-weight: 500; margin-right: 6px; font-variant-numeric: tabular-nums; }
+.station-elevation > p { text-align: right; }
 .station-notes .pressure-notes { margin: 0; padding: 0; border: 0; }
 .station-notes .pressure-notes > p { max-width: 940px; }
 .site-footer { display: flex; justify-content: space-between; gap: 20px; align-items: center; border-top: 1px solid var(--line); min-height: 84px; font-size: 13px; color: var(--muted); }

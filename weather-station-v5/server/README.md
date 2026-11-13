@@ -26,6 +26,8 @@ Expanding a card hides its overview
 sparkline and replaces it with the detailed graph; collapsing it restores the
 sparkline. Sensor colours carry
 through from icons to graphs, with UV and sound alongside the other readings.
+The station elevation is shown below the trends, using the server configuration
+and identifying the initial town-based value as approximate until verified.
 The station write-up is deferred until its hardware and installation are
 documented. Pressure/calibration notes and the official weather reference remain
 available without an invented station biography.

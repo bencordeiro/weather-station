@@ -4,7 +4,7 @@
   const $ = id => document.getElementById(id);
   const text = (id, value) => { $(id).textContent = value; };
   const fmt = (value, decimals = 1) => M.valid(value) ? new Intl.NumberFormat('en-CA', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }).format(value) : '—';
-  let config = { ...M.defaults }, latest = null, rows = [], dayRows = [], bucketSeconds = 300;
+  let config = { ...M.defaults }, configReady = false, latest = null, rows = [], dayRows = [], bucketSeconds = 300;
   let range = '24h', metric = 'temp_c', demo = new URL(location.href).searchParams.get('demo') === '1';
   let unit = 'C', offline = false, busy = false, generation = 0, selectedPoint = -1, plot = null, timer, timeOffset = 0;
   try { unit = localStorage.getItem('shelburne-temperature-unit') === 'F' ? 'F' : 'C'; } catch { /* Private browser storage may be unavailable. */ }
@@ -23,8 +23,14 @@
     text('page-title', 'Current conditions');
     text('place-label', `${config.town}, ${config.region}`.toUpperCase());
     text('hero-town', config.town.toUpperCase());
-    text('elevation-note', `${config.elevation_verified ? 'Station' : 'Approximate'} elevation: ${fmt(config.elevation_m, 0)} m.`);
-    text('calibration-height', fmt(config.elevation_m, 0));
+    if (configReady) {
+      const elevation = new Intl.NumberFormat('en-CA', { maximumFractionDigits: 3 }).format(config.elevation_m);
+      text('station-elevation-value', `${elevation} m`);
+      text('station-elevation-status', config.elevation_verified ? 'Station elevation confirmed in settings.' : config.town === 'Shelburne' && config.elevation_m === 500 ? 'Approximate · based on the Shelburne area; station height not yet verified.' : 'Approximate · station height not yet verified.');
+      text('elevation-note', `${config.elevation_verified ? 'Station' : 'Approximate'} elevation: ${elevation} m.`);
+      text('calibration-height', elevation);
+      text('calibration-elevation-status', config.elevation_verified ? 'confirmed' : 'provisional');
+    }
     text('footer-timezone', `LOCAL TIME · ${config.timezone.toUpperCase()}`);
     document.title = `ESP Weather ${config.town} · Current conditions`;
     const active = config.wind_enabled || config.rain_enabled;
@@ -296,7 +302,7 @@
   document.querySelectorAll('a[href="#pressure-notes"]').forEach(link => link.addEventListener('click', () => { $('pressure-notes').open = true; }));
   async function init() {
     applyConfig(); renderTime();
-    try { config = { ...M.defaults, ...await request('/api/config') }; applyConfig(); } catch { offline = !demo; }
+    try { config = { ...M.defaults, ...await request('/api/config') }; configReady = true; applyConfig(); } catch { text('station-elevation-status', 'Station elevation unavailable.'); offline = !demo; }
     await refresh();
     timer = setInterval(() => { if (!document.hidden) refresh(); }, config.refresh_seconds * 1000);
     setInterval(() => { if (!document.hidden) { renderTime(); renderPressureStory(); } }, 1000);
