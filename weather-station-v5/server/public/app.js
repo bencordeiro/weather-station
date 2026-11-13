@@ -99,20 +99,25 @@
   }
   function renderPressureStory() {
     const trend = latest?.pressure_trend;
+    const stale = !demo && (offline || (trend && !latest?.reading) || (latest?.reading && now() - latest.reading.received_at > config.stale_after_seconds * 1000));
     if (!trend) {
-      text('pressure-story-title', 'Pressure trend');
-      text('pressure-story-copy', 'Once we have about three hours of readings, the barometer can show whether pressure is rising, falling, or holding steady.');
-      text('pressure-delta', 'Collecting local history'); return;
+      const sensorMissing = latest?.reading && latest.reading.pressure === null;
+      text('pressure-story-title', sensorMissing || stale ? 'Pressure unavailable' : 'Pressure trend');
+      text('pressure-story-copy', sensorMissing ? 'The station did not report a valid pressure reading. The trend will return when the sensor reports again.' : stale ? 'The station has no recent connection or readings. The trend will return when current data is available.' : 'Once we have about three hours of readings, the barometer can show whether pressure is rising, falling, or holding steady.');
+      text('pressure-coverage', sensorMissing ? 'No valid current pressure reading.' : stale ? 'No current pressure trend is available.' : 'Reading coverage unavailable until history is collected.');
+      text('pressure-delta', sensorMissing ? 'Waiting for sensor' : stale ? 'Awaiting update' : 'Collecting local history'); return;
     }
-    const stale = !demo && (offline || !latest.reading || now() - latest.reading.received_at > config.stale_after_seconds * 1000);
     const stories = {
-      rising: ['Pressure rising', 'Rising pressure can accompany more settled conditions. This is an observed tendency, not a weather forecast.'],
-      falling: ['Pressure falling', 'Falling pressure can accompany more unsettled conditions. This is an observed tendency, not a weather forecast.'],
-      steady: ['Pressure steady', 'The barometer has changed little over the past few hours. Pressure alone does not provide a local forecast.'],
+      rising: ['Pressure rising', 'Rising pressure can accompany more settled conditions, but does not guarantee them.'],
+      falling: ['Pressure falling', 'Falling pressure can accompany changing weather; it cannot predict a storm on its own.'],
+      steady: ['Pressure steady', 'Pressure has changed little between the readings. This does not rule out changing weather.'],
     };
     const story = stories[trend.direction] || stories.steady;
-    text('pressure-story-title', stale ? 'Last pressure trend' : story[0]);
-    text('pressure-story-copy', stale ? 'These readings are no longer recent. The last observed pressure change is shown below; a fresh update will restore the current tendency.' : story[1]);
+    const coverage = trend.coverage;
+    const coverageText = !coverage ? 'Reading coverage is unavailable.' : coverage.consistent ? `Coverage: ${coverage.valid_samples} pressure readings · no gap over 15 minutes.` : `Reading coverage is limited · ${coverage.valid_samples} valid readings${coverage.missing_samples ? ` · ${coverage.missing_samples} sensor failures` : ''} · largest gap ${fmt(coverage.max_gap_minutes, 0)} minutes.`;
+    text('pressure-story-title', stale ? 'Last pressure trend' : !coverage?.consistent ? 'Pressure change' : story[0]);
+    text('pressure-story-copy', stale ? 'These readings are no longer recent. The last observed pressure change is shown below; a fresh update will restore the current tendency.' : !coverage ? 'Reading coverage is unavailable, so this change has limited context. It is not a forecast.' : !coverage.consistent ? 'The change compares available readings, but gaps or missing sensor data limit its context. It is not a forecast.' : story[1]);
+    text('pressure-coverage', `${stale ? 'Last recorded window: ' : ''}${coverageText} Coverage is not a forecast or sensor calibration.${demo ? ' Sample data.' : ''}`);
     text('pressure-delta', `${trend.delta_hpa > 0 ? '+' : ''}${fmt(trend.delta_hpa)} hPa over ${fmt(trend.hours)} hours${demo ? ' · sample' : ''}`);
   }
   async function refresh() {

@@ -161,8 +161,22 @@ export class WeatherStore {
       .get(target - 15 * 60000, target + 15 * 60000, target);
     if (!baseline) return null;
     const delta = latest.pressure - baseline.pressure;
+    // Report continuity separately from the endpoint change. It describes data
+    // coverage only; it cannot establish sensor accuracy or forecast skill.
+    const samples = this.db.prepare(`SELECT pressure, received_at FROM readings
+      WHERE received_at >= ? AND received_at <= ? ORDER BY received_at, id`)
+      .all(baseline.received_at, latest.received_at);
+    const valid = samples.filter(sample => sample.pressure !== null);
+    const missingSamples = samples.length - valid.length;
+    let maxGap = 0;
+    for (let i = 1; i < valid.length; i++) maxGap = Math.max(maxGap, valid[i].received_at - valid[i - 1].received_at);
+    // Include the boundaries so an absent endpoint can never appear complete.
+    if (!valid.length) maxGap = latest.received_at - baseline.received_at;
+    else maxGap = Math.max(maxGap, valid[0].received_at - baseline.received_at, latest.received_at - valid.at(-1).received_at);
+    const coverage = { valid_samples: valid.length, missing_samples: missingSamples,
+      max_gap_minutes: maxGap / 60000, consistent: valid.length >= 2 && missingSamples === 0 && maxGap <= 15 * 60000 };
     return { delta_hpa: delta, hours: (latest.received_at - baseline.received_at) / 3600000,
-      direction: delta > 0.5 ? 'rising' : delta < -0.5 ? 'falling' : 'steady' };
+      direction: delta > 0.5 ? 'rising' : delta < -0.5 ? 'falling' : 'steady', coverage };
   }
   summary(since, until = Date.now()) {
     return this.db.prepare(`SELECT COUNT(*) AS samples, MIN(temp_c) AS low_c, MAX(temp_c) AS high_c,

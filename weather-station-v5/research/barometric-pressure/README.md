@@ -2,7 +2,9 @@
 
 Research for ESP Weather Shelburne. **Status: exploratory research, not an
 operational forecast or storm-warning system.** No website prediction rules were
-changed as part of this study.
+changed as part of this study. See the [implementation and validation plan](IMPLEMENTATION-PLAN.md)
+for the subsequent observation-coverage improvement and steps required before
+publishing a weather-outcome prediction.
 
 ## Decision in plain language
 

@@ -72,6 +72,13 @@ to three hours earlier, requiring that baseline to be within 15 minutes of the
 target time. Without it, the page reports that history is still being collected.
 The displayed rising/falling threshold is ±0.5 hPa over that period; it is a UI
 heuristic, not an official pressure-tendency classification or forecasting model.
+The reported change still compares the two endpoints. The API also checks all
+stored readings in that interval: a window has consistent reporting only when
+there are at least two valid pressure samples, no failed BME readings, and no
+gap between valid samples or at the boundaries greater than 15 minutes. This
+15-minute coverage rule is an implementation choice, not a verified accuracy
+standard; a consistently reporting sensor may still be inaccurate. Gaps or
+sensor failures are labelled as limited coverage, and stale data is identified.
 The standard-atmosphere height correction and constant offset do not introduce
 temperature-driven changes into that raw-pressure trend.
 

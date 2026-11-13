@@ -18,6 +18,8 @@ test('sample preview is deterministic browser data, with uncommissioned instrume
   assert.ok(data.latest.today.high_c > data.latest.today.low_c);
   assert.equal(data.latest.reading.wind_kmh, null);
   assert.equal(data.latest.reading.rain_tips, null);
+  assert.equal(data.latest.pressure_trend.coverage.consistent, true);
+  assert.ok(data.latest.pressure_trend.coverage.valid_samples > 30);
   assert.ok(data.latest.reading.pressure_sea_level > data.latest.reading.pressure);
   assert.equal(M.demo(M.defaults, Date.parse('2026-10-21T17:00:00Z')).latest.reading.temp_c, data.latest.reading.temp_c);
   for (const range of ['6h', '24h', '7d']) assert.ok(M.demo(M.defaults, Date.now(), range).readings.length <= 1441);

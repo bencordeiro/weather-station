@@ -341,6 +341,51 @@ test('three-hour pressure tendency requires a real nearby baseline', () => {
   } finally { store.close(); }
 });
 
+test('pressure trend reports missing observations and gaps rather than treating endpoints as continuous coverage', () => {
+  const sampleReading = validateReading(sample, DEVICE);
+  function makeHistory({ skip = [], missing = [] } = {}) {
+    const store = new WeatherStore(':memory:');
+    for (let i = 0; i <= 18; i++) {
+      if (skip.includes(i)) continue;
+      const pressure = missing.includes(i) ? null : 960 - i / 10;
+      store.insert({ ...sampleReading, pressure }, NOW - (18 - i) * 10 * 60000);
+    }
+    return store;
+  }
+  const continuous = makeHistory();
+  const gaps = makeHistory({ skip: [4, 5] });
+  const sensorFailure = makeHistory({ missing: [7] });
+  try {
+    const complete = continuous.pressureTrend(continuous.latest());
+    assert.equal(complete.direction, 'falling');
+    assert.deepEqual(complete.coverage, { valid_samples: 19, missing_samples: 0, max_gap_minutes: 10, consistent: true });
+    const interrupted = gaps.pressureTrend(gaps.latest());
+    assert.equal(interrupted.coverage.consistent, false);
+    assert.equal(interrupted.coverage.max_gap_minutes, 30);
+    const failed = sensorFailure.pressureTrend(sensorFailure.latest());
+    assert.equal(failed.coverage.consistent, false);
+    assert.equal(failed.coverage.missing_samples, 1);
+    assert.equal(failed.coverage.max_gap_minutes, 20);
+  } finally {
+    continuous.close(); gaps.close(); sensorFailure.close();
+  }
+});
+
+test('public latest response includes pressure coverage from the real observation history', async t => {
+  const app = await start(t);
+  const reading = validateReading(sample, DEVICE);
+  for (let i = 0; i <= 18; i++) {
+    app.store.insert({ ...reading, pressure: 960 - i / 10 }, NOW - (18 - i) * 10 * 60000);
+  }
+  const response = await app.get('/api/latest');
+  assert.equal(response.status, 200);
+  const body = await response.json();
+  assert.equal(body.pressure_trend.direction, 'falling');
+  assert.equal(body.pressure_trend.coverage.consistent, true);
+  assert.equal(body.pressure_trend.coverage.valid_samples, 19);
+  assert.equal(body.pressure_trend.coverage.max_gap_minutes, 10);
+});
+
 test('a storage write failure returns 500 without storing or acknowledging the upload', async t => {
   const app = await start(t);
   app.store.db.exec('PRAGMA query_only = ON');

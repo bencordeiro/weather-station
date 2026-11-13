@@ -251,6 +251,9 @@ summary::-webkit-details-marker { display: none; }
 .tiny-cross { font-size: 24px; color: #e5c88c; }
 .pressure-story h3 { font-family: var(--serif); font-size: 34px; font-weight: 400; letter-spacing: -.5px; line-height: 1.25; margin: 12px 0; }
 .pressure-story > p { font-size: 16px; line-height: 1.8; color: var(--story-muted); max-width: 640px; margin: 0 0 20px; }
+.pressure-story > .pressure-coverage { font-size: 14px; line-height: 1.5; margin: 0 0 12px; }
+.pressure-forecast-link { align-self: flex-start; color: var(--story-ink); border-bottom: 1px solid var(--story-line); font-size: 14px; margin-bottom: 18px; }
+.pressure-forecast-link:hover { color: var(--story-ink); text-decoration: underline; }
 .pressure-story-bottom { display: flex; justify-content: space-between; gap: 14px; align-items: center; margin-top: auto; border-top: 1px solid var(--story-line); padding-top: 14px; font: 13px var(--mono); color: var(--story-muted); }
 .round-link { border: 1px solid var(--story-line); border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--story-ink); flex-shrink: 0; }
 .extra-readings { padding: 24px 28px; background: var(--instrument-surface); border: 1px solid var(--line); border-radius: 10px; }

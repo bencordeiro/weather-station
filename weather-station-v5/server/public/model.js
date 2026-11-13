@@ -44,10 +44,13 @@ globalThis.WeatherModel = (() => {
     const temperatures = todayRows.map(r => r.temp_c);
     const baseline = rows.reduce((best, row) => Math.abs(row.received_at - (now - 10800000)) < Math.abs(best.received_at - (now - 10800000)) ? row : best, rows[0]);
     const delta = reading.pressure - baseline.pressure;
+    const times = rows.filter(row => row.received_at >= baseline.received_at && row.received_at <= reading.received_at).map(row => row.received_at);
+    if (times.at(-1) !== reading.received_at) times.push(reading.received_at);
+    const maxGap = times.slice(1).reduce((largest, time, i) => Math.max(largest, time - times[i]), 0);
     return { readings: rows, bucket_seconds: step / 1000, latest: {
       reading, today: { samples: todayRows.length, low_c: Math.min(...temperatures), high_c: Math.max(...temperatures), rain_tips: null, peak_wind_kmh: null },
       server_time: now, station: { state: 'online', age_seconds: 18, bme280_ok: true },
-      pressure_trend: { delta_hpa: delta, hours: 3, direction: delta > .5 ? 'rising' : delta < -.5 ? 'falling' : 'steady' },
+      pressure_trend: { delta_hpa: delta, hours: (reading.received_at - baseline.received_at) / 3600000, direction: delta > .5 ? 'rising' : delta < -.5 ? 'falling' : 'steady', coverage: { valid_samples: times.length, missing_samples: 0, max_gap_minutes: maxGap / 60000, consistent: times.length >= 2 && maxGap <= 15 * 60000 } },
     } };
   }
   return Object.freeze({ ranges, defaults, metrics, valid, temperature, seaLevel, points, demo });

@@ -8,6 +8,9 @@ The page emphasizes temperature, humidity, pressure, light, UV, and sound. Senso
 to show recent graphs; the main graph has a measurement dropdown and 6-hour,
 24-hour, and 7-day ranges. It includes Toronto local time, daily high/low, a
 three-hour pressure tendency, CSV exports, and °C/°F display preferences.
+The pressure panel shows its observed change and reports whether its historical
+readings have sensor failures or gaps longer than 15 minutes. This is coverage
+information, not a measure of sensor accuracy or confidence in a forecast.
 Wind and rain are disabled until the physical meters are commissioned. UV and
 sound retain their raw units until calibrated.
 
